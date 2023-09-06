@@ -36,13 +36,13 @@ jobs:
         python -m pip install --upgrade pip 
         pip install flake8==6.0.0 flake8-isort==6.0.0
         pip install -r ./backend/requirements.txt 
-    # Этот шаг дополним переменными для доступа к БД
+
     - name: Test with flake8 and django tests
       # Добавляем env-переменные для доступа к БД
       env:
-          POSTGRES_USER: polinab2705
-          POSTGRES_PASSWORD: Parolneparol01
-          POSTGRES_DB: postgres
+        POSTGRES_USER: polinab2705
+        POSTGRES_PASSWORD: Parolneparol01
+        POSTGRES_DB: postgres
         # Сервер БД запущен в Docker, но его порт проброшен на хост
         # Поэтому подключаемся к 127.0.0.1:5432
         DB_HOST: 127.0.0.1
